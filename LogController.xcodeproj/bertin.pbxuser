@@ -1,0 +1,390 @@
+// !$*UTF8*$!
+{
+	0867D690FE84028FC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = D6D41E6C149F535F000A47D7 /* cseTest */;
+		activeTarget = D6D41E6A149F535F000A47D7 /* cseTest */;
+		addToTargets = (
+			D6D41E6A149F535F000A47D7 /* cseTest */,
+		);
+		breakpoints = (
+			D6D41E90149F55ED000A47D7 /* cseTest.c:88 */,
+		);
+		codeSenseManager = D6CEF76B134B87C600B6FD51 /* Code sense */;
+		executables = (
+			D6D6C049134C5F1C00E43CC5 /* pipeLogger */,
+			D67AD131141624B100E99EA2 /* pipeLogger-emb */,
+			D6D41E6C149F535F000A47D7 /* cseTest */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					160,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					277,
+					20,
+					43,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					237,
+					60,
+					20,
+					43,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 359391108;
+			PBXWorkspaceStateSaveDate = 359391108;
+		};
+		perUserProjectItems = {
+			D6E121E5156BDF8C00CEC33F /* PBXTextBookmark */ = D6E121E5156BDF8C00CEC33F /* PBXTextBookmark */;
+			D6E121E6156BDF8C00CEC33F /* PBXTextBookmark */ = D6E121E6156BDF8C00CEC33F /* PBXTextBookmark */;
+			D6F7612E14DF5BD1006E39C6 /* PBXTextBookmark */ = D6F7612E14DF5BD1006E39C6 /* PBXTextBookmark */;
+			D6F7612F14DF5BD1006E39C6 /* PBXTextBookmark */ = D6F7612F14DF5BD1006E39C6 /* PBXTextBookmark */;
+		};
+		sourceControlManager = D6CEF76A134B87C600B6FD51 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	8DC2EF4F0486A6940098B216 /* LogController */ = {
+		activeExec = 0;
+	};
+	D6169D0C134D021D004A2A56 /* LogController_framework */ = {
+		activeExec = 0;
+	};
+	D61EED3B148408F800D479D9 /* CritSectEx.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 3346}}";
+			sepNavSelRange = "{1747, 12}";
+			sepNavVisRange = "{1113, 1151}";
+			sepNavWindowFrame = "{{653, 0}, {750, 878}}";
+		};
+	};
+	D61EED3C148408F800D479D9 /* CritSectEx.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {774, 15876}}";
+			sepNavSelRange = "{3502, 63}";
+			sepNavVisRange = "{3178, 1257}";
+			sepNavWindowFrame = "{{15, 0}, {750, 878}}";
+		};
+	};
+	D61EED3D148408F800D479D9 /* timing.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 3164}}";
+			sepNavSelRange = "{822, 22}";
+			sepNavVisRange = "{0, 1090}";
+			sepNavWindowFrame = "{{15, 0}, {750, 878}}";
+		};
+	};
+	D6226D0D149A7DEA00CA271D /* msemul.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {702, 8246}}";
+			sepNavSelRange = "{5619, 0}";
+			sepNavVisRange = "{4351, 1618}";
+			sepNavWindowFrame = "{{27, 0}, {750, 878}}";
+		};
+	};
+	D6226D0E149A7DEA00CA271D /* msemul.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 7546}}";
+			sepNavSelRange = "{528, 20}";
+			sepNavVisRange = "{0, 957}";
+			sepNavWindowFrame = "{{623, 0}, {750, 878}}";
+		};
+	};
+	D6226D44149A81ED00CA271D /* fwInitialiser.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 786}}";
+			sepNavSelRange = "{310, 0}";
+			sepNavVisRange = "{0, 650}";
+			sepNavWindowFrame = "{{107, 61}, {750, 878}}";
+		};
+	};
+	D67A1CCE134B9F3600073807 /* LogController_loader */ = {
+		activeExec = 0;
+	};
+	D67AD12F141624B100E99EA2 /* pipeLogger-emb */ = {
+		activeExec = 0;
+		executables = (
+			D67AD131141624B100E99EA2 /* pipeLogger-emb */,
+		);
+	};
+	D67AD131141624B100E99EA2 /* pipeLogger-emb */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "pipeLogger-emb";
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	D696D5681414C06700E2F416 /* LogControllerGC_framework */ = {
+		activeExec = 0;
+	};
+	D6CEF76A134B87C600B6FD51 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	D6CEF76B134B87C600B6FD51 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	D6CEF783134B884600B6FD51 /* PCLogController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {732, 2464}}";
+			sepNavSelRange = "{1417, 11}";
+			sepNavVisRange = "{889, 1457}";
+			sepNavWindowFrame = "{{258, 150}, {791, 878}}";
+		};
+	};
+	D6CEF785134B884D00B6FD51 /* PCLogController.mm */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {732, 8134}}";
+			sepNavSelRange = "{6516, 14}";
+			sepNavVisRange = "{5537, 2032}";
+			sepNavWindowFrame = "{{568, 150}, {791, 878}}";
+		};
+	};
+	D6D41E6A149F535F000A47D7 /* cseTest */ = {
+		activeExec = 0;
+		executables = (
+			D6D41E6C149F535F000A47D7 /* cseTest */,
+		);
+	};
+	D6D41E6C149F535F000A47D7 /* cseTest */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = cseTest;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	D6D41E70149F538E000A47D7 /* cseTest.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 4858}}";
+			sepNavSelRange = "{1726, 11}";
+			sepNavVisRange = "{1123, 1329}";
+			sepNavWindowFrame = "{{15, 0}, {750, 878}}";
+		};
+	};
+	D6D41E90149F55ED000A47D7 /* cseTest.c:88 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = D6D41E70149F538E000A47D7 /* cseTest.c */;
+		functionName = "bgThread2Nudge()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 88;
+		modificationTime = 350155906.241343;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	D6D6C047134C5F1C00E43CC5 /* pipeLogger */ = {
+		activeExec = 0;
+		executables = (
+			D6D6C049134C5F1C00E43CC5 /* pipeLogger */,
+		);
+	};
+	D6D6C049134C5F1C00E43CC5 /* pipeLogger */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = pipeLogger;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	D6D6C07C134C812D00E43CC5 /* pipeLogger.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {772, 6104}}";
+			sepNavSelRange = "{9865, 0}";
+			sepNavVisRange = "{9558, 476}";
+			sepNavWindowFrame = "{{398, 0}, {791, 878}}";
+		};
+	};
+	D6E121E5156BDF8C00CEC33F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D6CEF785134B884D00B6FD51 /* PCLogController.mm */;
+		name = "PCLogController.mm: 242";
+		rLen = 14;
+		rLoc = 6516;
+		rType = 0;
+		vrLen = 2032;
+		vrLoc = 5537;
+	};
+	D6E121E6156BDF8C00CEC33F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D6CEF783134B884600B6FD51 /* PCLogController.h */;
+		name = "PCLogController.h: 51";
+		rLen = 11;
+		rLoc = 1417;
+		rType = 0;
+		vrLen = 1457;
+		vrLoc = 889;
+	};
+	D6F7612E14DF5BD1006E39C6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D6CEF785134B884D00B6FD51 /* PCLogController.mm */;
+		name = "PCLogController.mm: 242";
+		rLen = 14;
+		rLoc = 6516;
+		rType = 0;
+		vrLen = 2032;
+		vrLoc = 5537;
+	};
+	D6F7612F14DF5BD1006E39C6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D6CEF783134B884600B6FD51 /* PCLogController.h */;
+		name = "PCLogController.h: 51";
+		rLen = 11;
+		rLoc = 1417;
+		rType = 0;
+		vrLen = 1457;
+		vrLoc = 889;
+	};
+}

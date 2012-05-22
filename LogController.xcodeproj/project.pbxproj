@@ -1,0 +1,1142 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		D6169D0E134D021D004A2A56 /* PCLogController.h in Headers */ = {isa = PBXBuildFile; fileRef = D6CEF783134B884600B6FD51 /* PCLogController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6169D10134D021D004A2A56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		D6169D11134D021D004A2A56 /* PCLogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D6C051134C607700E43CC5 /* PCLogController.xib */; };
+		D6169D13134D021D004A2A56 /* PCLogController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D6CEF785134B884D00B6FD51 /* PCLogController.mm */; };
+		D6169D15134D021D004A2A56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		D6169D16134D021D004A2A56 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEF7A3134B897400B6FD51 /* AppKit.framework */; };
+		D61EED3E148408F800D479D9 /* CritSectEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3B148408F800D479D9 /* CritSectEx.cpp */; };
+		D61EED3F148408F800D479D9 /* CritSectEx.h in Headers */ = {isa = PBXBuildFile; fileRef = D61EED3C148408F800D479D9 /* CritSectEx.h */; };
+		D61EED40148408F800D479D9 /* timing.c in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3D148408F800D479D9 /* timing.c */; };
+		D61EED41148408F800D479D9 /* CritSectEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3B148408F800D479D9 /* CritSectEx.cpp */; };
+		D61EED42148408F800D479D9 /* CritSectEx.h in Headers */ = {isa = PBXBuildFile; fileRef = D61EED3C148408F800D479D9 /* CritSectEx.h */; };
+		D61EED43148408F800D479D9 /* timing.c in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3D148408F800D479D9 /* timing.c */; };
+		D61EED44148408F800D479D9 /* CritSectEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3B148408F800D479D9 /* CritSectEx.cpp */; };
+		D61EED45148408F800D479D9 /* CritSectEx.h in Headers */ = {isa = PBXBuildFile; fileRef = D61EED3C148408F800D479D9 /* CritSectEx.h */; };
+		D61EED46148408F800D479D9 /* timing.c in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3D148408F800D479D9 /* timing.c */; };
+		D61EED581484094700D479D9 /* timing.h in Headers */ = {isa = PBXBuildFile; fileRef = D61EED571484094700D479D9 /* timing.h */; };
+		D61EED591484094700D479D9 /* timing.h in Headers */ = {isa = PBXBuildFile; fileRef = D61EED571484094700D479D9 /* timing.h */; };
+		D61EED5A1484094700D479D9 /* timing.h in Headers */ = {isa = PBXBuildFile; fileRef = D61EED571484094700D479D9 /* timing.h */; };
+		D61EEDB31484128300D479D9 /* CritSectEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3B148408F800D479D9 /* CritSectEx.cpp */; };
+		D61EEDB41484128F00D479D9 /* timing.c in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3D148408F800D479D9 /* timing.c */; };
+		D6226D0F149A7DEA00CA271D /* msemul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6226D0D149A7DEA00CA271D /* msemul.cpp */; };
+		D6226D10149A7DEA00CA271D /* msemul.h in Headers */ = {isa = PBXBuildFile; fileRef = D6226D0E149A7DEA00CA271D /* msemul.h */; };
+		D6226D11149A7DEA00CA271D /* msemul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6226D0D149A7DEA00CA271D /* msemul.cpp */; };
+		D6226D12149A7DEA00CA271D /* msemul.h in Headers */ = {isa = PBXBuildFile; fileRef = D6226D0E149A7DEA00CA271D /* msemul.h */; };
+		D6226D13149A7DEA00CA271D /* msemul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6226D0D149A7DEA00CA271D /* msemul.cpp */; };
+		D6226D14149A7DEA00CA271D /* msemul.h in Headers */ = {isa = PBXBuildFile; fileRef = D6226D0E149A7DEA00CA271D /* msemul.h */; };
+		D6226D15149A7DEA00CA271D /* msemul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6226D0D149A7DEA00CA271D /* msemul.cpp */; };
+		D6226D16149A7DEA00CA271D /* msemul.h in Headers */ = {isa = PBXBuildFile; fileRef = D6226D0E149A7DEA00CA271D /* msemul.h */; };
+		D6226D45149A81ED00CA271D /* fwInitialiser.m in Sources */ = {isa = PBXBuildFile; fileRef = D6226D44149A81ED00CA271D /* fwInitialiser.m */; };
+		D6226D46149A81ED00CA271D /* fwInitialiser.m in Sources */ = {isa = PBXBuildFile; fileRef = D6226D44149A81ED00CA271D /* fwInitialiser.m */; };
+		D6226D47149A81ED00CA271D /* fwInitialiser.m in Sources */ = {isa = PBXBuildFile; fileRef = D6226D44149A81ED00CA271D /* fwInitialiser.m */; };
+		D6226D48149A81ED00CA271D /* fwInitialiser.m in Sources */ = {isa = PBXBuildFile; fileRef = D6226D44149A81ED00CA271D /* fwInitialiser.m */; };
+		D67A1CD0134B9F3600073807 /* PCLogController.h in Headers */ = {isa = PBXBuildFile; fileRef = D6CEF783134B884600B6FD51 /* PCLogController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D67A1CD2134B9F3600073807 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		D67A1CD4134B9F3600073807 /* PCLogController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D6CEF785134B884D00B6FD51 /* PCLogController.mm */; };
+		D67A1CD6134B9F3600073807 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		D67A1CD7134B9F3600073807 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEF7A3134B897400B6FD51 /* AppKit.framework */; };
+		D67AD13D141624BD00E99EA2 /* LogControllerGCFW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D696D5761414C06700E2F416 /* LogControllerGCFW.framework */; };
+		D67AD13E141624EF00E99EA2 /* pipeLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D6C07C134C812D00E43CC5 /* pipeLogger.m */; };
+		D67AD145141625C000E99EA2 /* LogControllerGCFW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D696D5761414C06700E2F416 /* LogControllerGCFW.framework */; };
+		D696D56A1414C06700E2F416 /* PCLogController.h in Headers */ = {isa = PBXBuildFile; fileRef = D6CEF783134B884600B6FD51 /* PCLogController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D696D56C1414C06700E2F416 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		D696D56D1414C06700E2F416 /* PCLogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D6C051134C607700E43CC5 /* PCLogController.xib */; };
+		D696D56F1414C06700E2F416 /* PCLogController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D6CEF785134B884D00B6FD51 /* PCLogController.mm */; };
+		D696D5711414C06700E2F416 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		D696D5721414C06700E2F416 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEF7A3134B897400B6FD51 /* AppKit.framework */; };
+		D6CEF784134B884600B6FD51 /* PCLogController.h in Headers */ = {isa = PBXBuildFile; fileRef = D6CEF783134B884600B6FD51 /* PCLogController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6CEF786134B884D00B6FD51 /* PCLogController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D6CEF785134B884D00B6FD51 /* PCLogController.mm */; };
+		D6CEF7A4134B897400B6FD51 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEF7A3134B897400B6FD51 /* AppKit.framework */; };
+		D6D41E71149F538E000A47D7 /* cseTest.c in Sources */ = {isa = PBXBuildFile; fileRef = D6D41E70149F538E000A47D7 /* cseTest.c */; };
+		D6D41E72149F53D0000A47D7 /* msemul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6226D0D149A7DEA00CA271D /* msemul.cpp */; };
+		D6D41E73149F53D0000A47D7 /* CritSectEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3B148408F800D479D9 /* CritSectEx.cpp */; };
+		D6D41E74149F53D0000A47D7 /* timing.c in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3D148408F800D479D9 /* timing.c */; };
+		D6D6C07D134C812D00E43CC5 /* pipeLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D6C07C134C812D00E43CC5 /* pipeLogger.m */; };
+		D6D6C09C134C84A100E43CC5 /* LogController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* LogController.framework */; };
+		D6D6C09F134C84A600E43CC5 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEF7A3134B897400B6FD51 /* AppKit.framework */; };
+		D6D6C285134C97BE00E43CC5 /* PCLogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D6C051134C607700E43CC5 /* PCLogController.xib */; };
+		D6D6C286134C97BF00E43CC5 /* PCLogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D6C051134C607700E43CC5 /* PCLogController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D67AD13B141624B900E99EA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D696D5681414C06700E2F416;
+			remoteInfo = LogControllerGC_framework;
+		};
+		D6D6C04C134C5F2200E43CC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = LogController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D67AD1421416252700E99EA2 /* Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D67AD145141625C000E99EA2 /* LogControllerGCFW.framework in Frameworks */,
+			);
+			name = Frameworks;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC2EF5B0486A6940098B216 /* LogController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LogController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6169D1A134D021D004A2A56 /* LogControllerFW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LogControllerFW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6169D1B134D021D004A2A56 /* Info copy 2.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info copy 2.plist"; sourceTree = "<group>"; };
+		D61EED3B148408F800D479D9 /* CritSectEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CritSectEx.cpp; sourceTree = "<group>"; };
+		D61EED3C148408F800D479D9 /* CritSectEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CritSectEx.h; sourceTree = "<group>"; };
+		D61EED3D148408F800D479D9 /* timing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = timing.c; sourceTree = "<group>"; };
+		D61EED571484094700D479D9 /* timing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timing.h; sourceTree = "<group>"; };
+		D6226D0D149A7DEA00CA271D /* msemul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msemul.cpp; sourceTree = "<group>"; };
+		D6226D0E149A7DEA00CA271D /* msemul.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msemul.h; sourceTree = "<group>"; };
+		D6226D44149A81ED00CA271D /* fwInitialiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fwInitialiser.m; sourceTree = "<group>"; };
+		D67A1CDB134B9F3600073807 /* LogControllerL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LogControllerL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D67A1CDC134B9F3600073807 /* Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info copy.plist"; sourceTree = "<group>"; };
+		D67AD130141624B100E99EA2 /* pipeLogger-emb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pipeLogger-emb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D67AD134141624B100E99EA2 /* pipeLogger-emb-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pipeLogger-emb-Info.plist"; sourceTree = "<group>"; };
+		D696D5761414C06700E2F416 /* LogControllerGCFW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LogControllerGCFW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D696D5791414C06700E2F416 /* Info copy 3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info copy 3.plist"; sourceTree = "<group>"; };
+		D6CEF783134B884600B6FD51 /* PCLogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLogController.h; sourceTree = "<group>"; };
+		D6CEF785134B884D00B6FD51 /* PCLogController.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.cpp.objcpp; path = PCLogController.mm; sourceTree = "<group>"; tabWidth = 5; };
+		D6CEF7A3134B897400B6FD51 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D6D41E6B149F535F000A47D7 /* cseTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cseTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6D41E70149F538E000A47D7 /* cseTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cseTest.c; sourceTree = "<group>"; };
+		D6D6C048134C5F1C00E43CC5 /* pipeLogger */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pipeLogger; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6D6C051134C607700E43CC5 /* PCLogController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PCLogController.xib; sourceTree = "<group>"; };
+		D6D6C07C134C812D00E43CC5 /* pipeLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pipeLogger.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DC2EF560486A6940098B216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+				D6CEF7A4134B897400B6FD51 /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6169D14134D021D004A2A56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6169D15134D021D004A2A56 /* Cocoa.framework in Frameworks */,
+				D6169D16134D021D004A2A56 /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D67A1CD5134B9F3600073807 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D67A1CD6134B9F3600073807 /* Cocoa.framework in Frameworks */,
+				D67A1CD7134B9F3600073807 /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D67AD12E141624B100E99EA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D67AD13D141624BD00E99EA2 /* LogControllerGCFW.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D696D5701414C06700E2F416 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D696D5711414C06700E2F416 /* Cocoa.framework in Frameworks */,
+				D696D5721414C06700E2F416 /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D41E69149F535F000A47D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D6C046134C5F1C00E43CC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6D6C09F134C84A600E43CC5 /* AppKit.framework in Frameworks */,
+				D6D6C09C134C84A100E43CC5 /* LogController.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5B0486A6940098B216 /* LogController.framework */,
+				D67A1CDB134B9F3600073807 /* LogControllerL.framework */,
+				D6169D1A134D021D004A2A56 /* LogControllerFW.framework */,
+				D6D6C048134C5F1C00E43CC5 /* pipeLogger */,
+				D696D5761414C06700E2F416 /* LogControllerGCFW.framework */,
+				D67AD130141624B100E99EA2 /* pipeLogger-emb.app */,
+				D6D41E6B149F535F000A47D7 /* cseTest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* LogController */ = {
+			isa = PBXGroup;
+			children = (
+				D6CEF77F134B883700B6FD51 /* Headers */,
+				32C88DFF0371C24200C91783 /* Source */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+				D6CEF7A3134B897400B6FD51 /* AppKit.framework */,
+				D67AD134141624B100E99EA2 /* pipeLogger-emb-Info.plist */,
+			);
+			name = LogController;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+				D67A1CDC134B9F3600073807 /* Info copy.plist */,
+				D6D6C051134C607700E43CC5 /* PCLogController.xib */,
+				D6169D1B134D021D004A2A56 /* Info copy 2.plist */,
+				D696D5791414C06700E2F416 /* Info copy 3.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D61EED3A148408F800D479D9 /* CritSectEx */,
+				D61EED3D148408F800D479D9 /* timing.c */,
+				D6D6C07C134C812D00E43CC5 /* pipeLogger.m */,
+				D6CEF785134B884D00B6FD51 /* PCLogController.mm */,
+				D6226D44149A81ED00CA271D /* fwInitialiser.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		D61EED3A148408F800D479D9 /* CritSectEx */ = {
+			isa = PBXGroup;
+			children = (
+				D6226D0D149A7DEA00CA271D /* msemul.cpp */,
+				D6226D0E149A7DEA00CA271D /* msemul.h */,
+				D61EED3B148408F800D479D9 /* CritSectEx.cpp */,
+				D61EED3C148408F800D479D9 /* CritSectEx.h */,
+				D6D41E70149F538E000A47D7 /* cseTest.c */,
+			);
+			path = CritSectEx;
+			sourceTree = "<group>";
+		};
+		D6CEF77F134B883700B6FD51 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				D61EED571484094700D479D9 /* timing.h */,
+				D6CEF783134B884600B6FD51 /* PCLogController.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8DC2EF500486A6940098B216 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6CEF784134B884600B6FD51 /* PCLogController.h in Headers */,
+				D61EED3F148408F800D479D9 /* CritSectEx.h in Headers */,
+				D61EED581484094700D479D9 /* timing.h in Headers */,
+				D6226D10149A7DEA00CA271D /* msemul.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6169D0D134D021D004A2A56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6169D0E134D021D004A2A56 /* PCLogController.h in Headers */,
+				D61EED45148408F800D479D9 /* CritSectEx.h in Headers */,
+				D61EED5A1484094700D479D9 /* timing.h in Headers */,
+				D6226D14149A7DEA00CA271D /* msemul.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D67A1CCF134B9F3600073807 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D67A1CD0134B9F3600073807 /* PCLogController.h in Headers */,
+				D61EED42148408F800D479D9 /* CritSectEx.h in Headers */,
+				D61EED591484094700D479D9 /* timing.h in Headers */,
+				D6226D12149A7DEA00CA271D /* msemul.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D696D5691414C06700E2F416 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D696D56A1414C06700E2F416 /* PCLogController.h in Headers */,
+				D6226D16149A7DEA00CA271D /* msemul.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8DC2EF4F0486A6940098B216 /* LogController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "LogController" */;
+			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
+				8DC2EF520486A6940098B216 /* Resources */,
+				8DC2EF540486A6940098B216 /* Sources */,
+				8DC2EF560486A6940098B216 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LogController;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = LogController;
+			productReference = 8DC2EF5B0486A6940098B216 /* LogController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D6169D0C134D021D004A2A56 /* LogController_framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6169D17134D021D004A2A56 /* Build configuration list for PBXNativeTarget "LogController_framework" */;
+			buildPhases = (
+				D6169D0D134D021D004A2A56 /* Headers */,
+				D6169D0F134D021D004A2A56 /* Resources */,
+				D6169D12134D021D004A2A56 /* Sources */,
+				D6169D14134D021D004A2A56 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			comments = "version built for inclusion in frameworks: @loader_path/Frameworks";
+			dependencies = (
+			);
+			name = LogController_framework;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = LogController;
+			productReference = D6169D1A134D021D004A2A56 /* LogControllerFW.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D67A1CCE134B9F3600073807 /* LogController_loader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D67A1CD8134B9F3600073807 /* Build configuration list for PBXNativeTarget "LogController_loader" */;
+			buildPhases = (
+				D67A1CCF134B9F3600073807 /* Headers */,
+				D67A1CD1134B9F3600073807 /* Resources */,
+				D67A1CD3134B9F3600073807 /* Sources */,
+				D67A1CD5134B9F3600073807 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			comments = "version built for inclusion in dynamically loaded bundles: @loader_path/../Frameworks";
+			dependencies = (
+			);
+			name = LogController_loader;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = LogController;
+			productReference = D67A1CDB134B9F3600073807 /* LogControllerL.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D67AD12F141624B100E99EA2 /* pipeLogger-emb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D67AD13A141624B100E99EA2 /* Build configuration list for PBXNativeTarget "pipeLogger-emb" */;
+			buildPhases = (
+				D67AD12C141624B100E99EA2 /* Resources */,
+				D67AD12D141624B100E99EA2 /* Sources */,
+				D67AD12E141624B100E99EA2 /* Frameworks */,
+				D67AD1421416252700E99EA2 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D67AD13C141624B900E99EA2 /* PBXTargetDependency */,
+			);
+			name = "pipeLogger-emb";
+			productName = "pipeLogger-emb";
+			productReference = D67AD130141624B100E99EA2 /* pipeLogger-emb.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D696D5681414C06700E2F416 /* LogControllerGC_framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D696D5731414C06700E2F416 /* Build configuration list for PBXNativeTarget "LogControllerGC_framework" */;
+			buildPhases = (
+				D696D5691414C06700E2F416 /* Headers */,
+				D696D56B1414C06700E2F416 /* Resources */,
+				D696D56E1414C06700E2F416 /* Sources */,
+				D696D5701414C06700E2F416 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			comments = "version built for inclusion in frameworks: @loader_path/Frameworks";
+			dependencies = (
+			);
+			name = LogControllerGC_framework;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = LogController;
+			productReference = D696D5761414C06700E2F416 /* LogControllerGCFW.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D6D41E6A149F535F000A47D7 /* cseTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6D41E6F149F537E000A47D7 /* Build configuration list for PBXNativeTarget "cseTest" */;
+			buildPhases = (
+				D6D41E68149F535F000A47D7 /* Sources */,
+				D6D41E69149F535F000A47D7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = cseTest;
+			productName = cseTest;
+			productReference = D6D41E6B149F535F000A47D7 /* cseTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		D6D6C047134C5F1C00E43CC5 /* pipeLogger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6D6C04E134C5F8700E43CC5 /* Build configuration list for PBXNativeTarget "pipeLogger" */;
+			buildPhases = (
+				D6D6C045134C5F1C00E43CC5 /* Sources */,
+				D6D6C046134C5F1C00E43CC5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6D6C04D134C5F2200E43CC5 /* PBXTargetDependency */,
+			);
+			name = pipeLogger;
+			productName = pipeLogger;
+			productReference = D6D6C048134C5F1C00E43CC5 /* pipeLogger */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "LogController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* LogController */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DC2EF4F0486A6940098B216 /* LogController */,
+				D67A1CCE134B9F3600073807 /* LogController_loader */,
+				D6169D0C134D021D004A2A56 /* LogController_framework */,
+				D6D6C047134C5F1C00E43CC5 /* pipeLogger */,
+				D696D5681414C06700E2F416 /* LogControllerGC_framework */,
+				D67AD12F141624B100E99EA2 /* pipeLogger-emb */,
+				D6D41E6A149F535F000A47D7 /* cseTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DC2EF520486A6940098B216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+				D6D6C285134C97BE00E43CC5 /* PCLogController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6169D0F134D021D004A2A56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6169D10134D021D004A2A56 /* InfoPlist.strings in Resources */,
+				D6169D11134D021D004A2A56 /* PCLogController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D67A1CD1134B9F3600073807 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D67A1CD2134B9F3600073807 /* InfoPlist.strings in Resources */,
+				D6D6C286134C97BF00E43CC5 /* PCLogController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D67AD12C141624B100E99EA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D696D56B1414C06700E2F416 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D696D56C1414C06700E2F416 /* InfoPlist.strings in Resources */,
+				D696D56D1414C06700E2F416 /* PCLogController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DC2EF540486A6940098B216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6CEF786134B884D00B6FD51 /* PCLogController.mm in Sources */,
+				D61EED3E148408F800D479D9 /* CritSectEx.cpp in Sources */,
+				D61EED40148408F800D479D9 /* timing.c in Sources */,
+				D6226D0F149A7DEA00CA271D /* msemul.cpp in Sources */,
+				D6226D47149A81ED00CA271D /* fwInitialiser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6169D12134D021D004A2A56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6169D13134D021D004A2A56 /* PCLogController.mm in Sources */,
+				D61EED44148408F800D479D9 /* CritSectEx.cpp in Sources */,
+				D61EED46148408F800D479D9 /* timing.c in Sources */,
+				D6226D13149A7DEA00CA271D /* msemul.cpp in Sources */,
+				D6226D45149A81ED00CA271D /* fwInitialiser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D67A1CD3134B9F3600073807 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D67A1CD4134B9F3600073807 /* PCLogController.mm in Sources */,
+				D61EED41148408F800D479D9 /* CritSectEx.cpp in Sources */,
+				D61EED43148408F800D479D9 /* timing.c in Sources */,
+				D6226D11149A7DEA00CA271D /* msemul.cpp in Sources */,
+				D6226D46149A81ED00CA271D /* fwInitialiser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D67AD12D141624B100E99EA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D67AD13E141624EF00E99EA2 /* pipeLogger.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D696D56E1414C06700E2F416 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D696D56F1414C06700E2F416 /* PCLogController.mm in Sources */,
+				D61EEDB31484128300D479D9 /* CritSectEx.cpp in Sources */,
+				D61EEDB41484128F00D479D9 /* timing.c in Sources */,
+				D6226D15149A7DEA00CA271D /* msemul.cpp in Sources */,
+				D6226D48149A81ED00CA271D /* fwInitialiser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D41E68149F535F000A47D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6D41E71149F538E000A47D7 /* cseTest.c in Sources */,
+				D6D41E72149F53D0000A47D7 /* msemul.cpp in Sources */,
+				D6D41E73149F53D0000A47D7 /* CritSectEx.cpp in Sources */,
+				D6D41E74149F53D0000A47D7 /* timing.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D6C045134C5F1C00E43CC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6D6C07D134C812D00E43CC5 /* pipeLogger.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D67AD13C141624B900E99EA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D696D5681414C06700E2F416 /* LogControllerGC_framework */;
+			targetProxy = D67AD13B141624B900E99EA2 /* PBXContainerItemProxy */;
+		};
+		D6D6C04D134C5F2200E43CC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* LogController */;
+			targetProxy = D6D6C04C134C5F2200E43CC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91AE08733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_STRICT_ALIASING = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Library/Frameworks;
+				PRODUCT_NAME = LogController;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		1DEB91AF08733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_STRICT_ALIASING = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Library/Frameworks;
+				PRODUCT_NAME = LogController;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		1DEB91B208733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_STRICT_ALIASING = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		1DEB91B308733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_MODEL_TUNING = "";
+				GCC_STRICT_ALIASING = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		D6169D18134D021D004A2A56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_STRICT_ALIASING = YES;
+				IBC_FLATTEN_NIBS = NO;
+				INFOPLIST_FILE = "Info copy 2.plist";
+				INSTALL_PATH = "@loader_path/Frameworks";
+				PRODUCT_NAME = LogControllerFW;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		D6169D19134D021D004A2A56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_STRICT_ALIASING = YES;
+				IBC_FLATTEN_NIBS = NO;
+				INFOPLIST_FILE = "Info copy 2.plist";
+				INSTALL_PATH = "@loader_path/Frameworks";
+				PRODUCT_NAME = LogControllerFW;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		D67A1CD9134B9F3600073807 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = EMBEDDED_FRAMEWORK;
+				GCC_STRICT_ALIASING = YES;
+				IBC_FLATTEN_NIBS = NO;
+				INFOPLIST_FILE = "Info copy.plist";
+				INSTALL_PATH = "@loader_path/../Frameworks";
+				PRODUCT_NAME = LogControllerL;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		D67A1CDA134B9F3600073807 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = EMBEDDED_FRAMEWORK;
+				GCC_STRICT_ALIASING = YES;
+				IBC_FLATTEN_NIBS = NO;
+				INFOPLIST_FILE = "Info copy.plist";
+				INSTALL_PATH = "@loader_path/../Frameworks";
+				LLVM_LTO = NO;
+				PRODUCT_NAME = LogControllerL;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		D67AD135141624B100E99EA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "pipeLogger-emb-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "pipeLogger-emb";
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		D67AD136141624B100E99EA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "pipeLogger-emb-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "pipeLogger-emb";
+				SDKROOT = macosx10.5;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		D696D5741414C06700E2F416 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					EMBEDDED_FRAMEWORK,
+					SUPPORTS_GC,
+				);
+				GCC_STRICT_ALIASING = YES;
+				IBC_FLATTEN_NIBS = NO;
+				INFOPLIST_FILE = "Info copy 3.plist";
+				INSTALL_PATH = "@loader_path/../Frameworks";
+				PRODUCT_NAME = LogControllerGCFW;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		D696D5751414C06700E2F416 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					EMBEDDED_FRAMEWORK,
+					SUPPORTS_GC,
+				);
+				GCC_STRICT_ALIASING = YES;
+				IBC_FLATTEN_NIBS = NO;
+				INFOPLIST_FILE = "Info copy 3.plist";
+				INSTALL_PATH = "@loader_path/../Frameworks";
+				PRODUCT_NAME = LogControllerGCFW;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		D6D41E6D149F5360000A47D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = cseTest;
+			};
+			name = Debug;
+		};
+		D6D41E6E149F5360000A47D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = 3;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = cseTest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		D6D6C04A134C5F1D00E43CC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = pipeLogger;
+			};
+			name = Debug;
+		};
+		D6D6C04B134C5F1D00E43CC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = pipeLogger;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "LogController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91AE08733DA50010E9CD /* Debug */,
+				1DEB91AF08733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "LogController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91B208733DA50010E9CD /* Debug */,
+				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6169D17134D021D004A2A56 /* Build configuration list for PBXNativeTarget "LogController_framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6169D18134D021D004A2A56 /* Debug */,
+				D6169D19134D021D004A2A56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D67A1CD8134B9F3600073807 /* Build configuration list for PBXNativeTarget "LogController_loader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D67A1CD9134B9F3600073807 /* Debug */,
+				D67A1CDA134B9F3600073807 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D67AD13A141624B100E99EA2 /* Build configuration list for PBXNativeTarget "pipeLogger-emb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D67AD135141624B100E99EA2 /* Debug */,
+				D67AD136141624B100E99EA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D696D5731414C06700E2F416 /* Build configuration list for PBXNativeTarget "LogControllerGC_framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D696D5741414C06700E2F416 /* Debug */,
+				D696D5751414C06700E2F416 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6D41E6F149F537E000A47D7 /* Build configuration list for PBXNativeTarget "cseTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6D41E6D149F5360000A47D7 /* Debug */,
+				D6D41E6E149F5360000A47D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6D6C04E134C5F8700E43CC5 /* Build configuration list for PBXNativeTarget "pipeLogger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6D6C04A134C5F1D00E43CC5 /* Debug */,
+				D6D6C04B134C5F1D00E43CC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
