@@ -99,14 +99,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 359391108;
-			PBXWorkspaceStateSaveDate = 359391108;
-		};
-		perUserProjectItems = {
-			D6E121E5156BDF8C00CEC33F /* PBXTextBookmark */ = D6E121E5156BDF8C00CEC33F /* PBXTextBookmark */;
-			D6E121E6156BDF8C00CEC33F /* PBXTextBookmark */ = D6E121E6156BDF8C00CEC33F /* PBXTextBookmark */;
-			D6F7612E14DF5BD1006E39C6 /* PBXTextBookmark */ = D6F7612E14DF5BD1006E39C6 /* PBXTextBookmark */;
-			D6F7612F14DF5BD1006E39C6 /* PBXTextBookmark */ = D6F7612F14DF5BD1006E39C6 /* PBXTextBookmark */;
+			PBXPerProjectTemplateStateSaveDate = 359484640;
+			PBXWorkspaceStateSaveDate = 359484640;
 		};
 		sourceControlManager = D6CEF76A134B87C600B6FD51 /* Source Control */;
 		userBuildSettings = {
@@ -227,15 +221,15 @@
 			sepNavIntBoundsRect = "{{0, 0}, {732, 2464}}";
 			sepNavSelRange = "{1417, 11}";
 			sepNavVisRange = "{889, 1457}";
-			sepNavWindowFrame = "{{258, 150}, {791, 878}}";
+			sepNavWindowFrame = "{{188, 0}, {791, 878}}";
 		};
 	};
 	D6CEF785134B884D00B6FD51 /* PCLogController.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 8134}}";
-			sepNavSelRange = "{6516, 14}";
-			sepNavVisRange = "{5537, 2032}";
-			sepNavWindowFrame = "{{568, 150}, {791, 878}}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 8302}}";
+			sepNavSelRange = "{4741, 33}";
+			sepNavVisRange = "{3032, 1114}";
+			sepNavWindowFrame = "{{415, 0}, {791, 878}}";
 		};
 	};
 	D6D41E6A149F535F000A47D7 /* cseTest */ = {
@@ -346,45 +340,5 @@
 			sepNavVisRange = "{9558, 476}";
 			sepNavWindowFrame = "{{398, 0}, {791, 878}}";
 		};
-	};
-	D6E121E5156BDF8C00CEC33F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D6CEF785134B884D00B6FD51 /* PCLogController.mm */;
-		name = "PCLogController.mm: 242";
-		rLen = 14;
-		rLoc = 6516;
-		rType = 0;
-		vrLen = 2032;
-		vrLoc = 5537;
-	};
-	D6E121E6156BDF8C00CEC33F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D6CEF783134B884600B6FD51 /* PCLogController.h */;
-		name = "PCLogController.h: 51";
-		rLen = 11;
-		rLoc = 1417;
-		rType = 0;
-		vrLen = 1457;
-		vrLoc = 889;
-	};
-	D6F7612E14DF5BD1006E39C6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D6CEF785134B884D00B6FD51 /* PCLogController.mm */;
-		name = "PCLogController.mm: 242";
-		rLen = 14;
-		rLoc = 6516;
-		rType = 0;
-		vrLen = 2032;
-		vrLoc = 5537;
-	};
-	D6F7612F14DF5BD1006E39C6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D6CEF783134B884600B6FD51 /* PCLogController.h */;
-		name = "PCLogController.h: 51";
-		rLen = 11;
-		rLoc = 1417;
-		rType = 0;
-		vrLen = 1457;
-		vrLoc = 889;
 	};
 }
