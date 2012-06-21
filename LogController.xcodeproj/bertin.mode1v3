@@ -296,13 +296,12 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>11</integer>
-									<integer>2</integer>
-									<integer>0</integer>
+									<integer>32</integer>
+									<integer>31</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 501}}</string>
+							<string>{{0, 297}, {186, 501}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -321,7 +320,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>-774 339 719 560 -1280 100 1280 800 </string>
+						<string>-774 489 719 560 -1280 250 1280 800 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -358,7 +357,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {511, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-774 339 719 560 -1280 100 1280 800 </string>
+								<string>-774 489 719 560 -1280 250 1280 800 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -378,7 +377,7 @@
 								<key>Frame</key>
 								<string>{{0, 5}, {511, 514}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-774 339 719 560 -1280 100 1280 800 </string>
+								<string>-774 489 719 560 -1280 250 1280 800 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -402,9 +401,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>D6EDF4B9156D4D0300437AEE</string>
+				<string>D679DF53158099B600A3B701</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>D6EDF4BA156D4D0300437AEE</string>
+				<string>D679DF54158099B600A3B701</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -525,7 +524,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>359484675.59245801</real>
+	<real>360749494.60104001</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
@@ -543,12 +542,10 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>D6CEF771134B880C00B6FD51</string>
-		<string>D659D9A414DEF40F00584510</string>
-		<string>D6226CFA149A7C8000CA271D</string>
 		<string>/Volumes/Debian/Users/bertin/work/src/MacOSX/GNUStep-PC-LogController/LogController.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>-774 339 719 560 -1280 100 1280 800 </string>
+	<string>-774 489 719 560 -1280 250 1280 800 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -578,7 +575,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {781, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>470 64 781 647 0 0 1440 878 </string>
+								<string>641 87 781 647 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -586,6 +583,8 @@
 							<string>0pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -602,7 +601,7 @@
 								<key>Frame</key>
 								<string>{{0, 5}, {781, 601}}</string>
 								<key>RubberWindowFrame</key>
-								<string>470 64 781 647 0 0 1440 878 </string>
+								<string>641 87 781 647 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -625,7 +624,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>D6CEF771134B880C00B6FD51</string>
-				<string>D6EDF4BB156D4D0300437AEE</string>
+				<string>D679DF4C158099A300A3B701</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -634,7 +633,7 @@
 			<key>WindowContentMinSize</key>
 			<string>486 300</string>
 			<key>WindowString</key>
-			<string>470 64 781 647 0 0 1440 878 </string>
+			<string>641 87 781 647 0 0 1680 1028 </string>
 			<key>WindowToolGUID</key>
 			<string>D6CEF771134B880C00B6FD51</string>
 			<key>WindowToolIsVisible</key>
