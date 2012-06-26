@@ -58,10 +58,6 @@
 		D6CEF784134B884600B6FD51 /* PCLogController.h in Headers */ = {isa = PBXBuildFile; fileRef = D6CEF783134B884600B6FD51 /* PCLogController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6CEF786134B884D00B6FD51 /* PCLogController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D6CEF785134B884D00B6FD51 /* PCLogController.mm */; };
 		D6CEF7A4134B897400B6FD51 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEF7A3134B897400B6FD51 /* AppKit.framework */; };
-		D6D41E71149F538E000A47D7 /* cseTest.c in Sources */ = {isa = PBXBuildFile; fileRef = D6D41E70149F538E000A47D7 /* cseTest.c */; };
-		D6D41E72149F53D0000A47D7 /* msemul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6226D0D149A7DEA00CA271D /* msemul.cpp */; };
-		D6D41E73149F53D0000A47D7 /* CritSectEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3B148408F800D479D9 /* CritSectEx.cpp */; };
-		D6D41E74149F53D0000A47D7 /* timing.c in Sources */ = {isa = PBXBuildFile; fileRef = D61EED3D148408F800D479D9 /* timing.c */; };
 		D6D6C07D134C812D00E43CC5 /* pipeLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D6C07C134C812D00E43CC5 /* pipeLogger.m */; };
 		D6D6C09C134C84A100E43CC5 /* LogController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* LogController.framework */; };
 		D6D6C09F134C84A600E43CC5 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEF7A3134B897400B6FD51 /* AppKit.framework */; };
@@ -124,8 +120,6 @@
 		D6CEF783134B884600B6FD51 /* PCLogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLogController.h; sourceTree = "<group>"; };
 		D6CEF785134B884D00B6FD51 /* PCLogController.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.cpp.objcpp; path = PCLogController.mm; sourceTree = "<group>"; tabWidth = 5; };
 		D6CEF7A3134B897400B6FD51 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		D6D41E6B149F535F000A47D7 /* cseTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cseTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6D41E70149F538E000A47D7 /* cseTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cseTest.c; sourceTree = "<group>"; };
 		D6D6C048134C5F1C00E43CC5 /* pipeLogger */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pipeLogger; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D6C051134C607700E43CC5 /* PCLogController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PCLogController.xib; sourceTree = "<group>"; };
 		D6D6C07C134C812D00E43CC5 /* pipeLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pipeLogger.m; sourceTree = "<group>"; };
@@ -176,13 +170,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D6D41E69149F535F000A47D7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D6D6C046134C5F1C00E43CC5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,7 +191,6 @@
 				D6D6C048134C5F1C00E43CC5 /* pipeLogger */,
 				D696D5761414C06700E2F416 /* LogControllerGCFW.framework */,
 				D67AD130141624B100E99EA2 /* pipeLogger-emb.app */,
-				D6D41E6B149F535F000A47D7 /* cseTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -265,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				D61EED3A148408F800D479D9 /* CritSectEx */,
-				D61EED3D148408F800D479D9 /* timing.c */,
 				D6D6C07C134C812D00E43CC5 /* pipeLogger.m */,
 				D6CEF785134B884D00B6FD51 /* PCLogController.mm */,
 				D6226D44149A81ED00CA271D /* fwInitialiser.m */,
@@ -276,11 +261,12 @@
 		D61EED3A148408F800D479D9 /* CritSectEx */ = {
 			isa = PBXGroup;
 			children = (
+				D61EED571484094700D479D9 /* timing.h */,
+				D61EED3D148408F800D479D9 /* timing.c */,
 				D6226D0D149A7DEA00CA271D /* msemul.cpp */,
 				D6226D0E149A7DEA00CA271D /* msemul.h */,
 				D61EED3B148408F800D479D9 /* CritSectEx.cpp */,
 				D61EED3C148408F800D479D9 /* CritSectEx.h */,
-				D6D41E70149F538E000A47D7 /* cseTest.c */,
 			);
 			path = CritSectEx;
 			sourceTree = "<group>";
@@ -288,7 +274,6 @@
 		D6CEF77F134B883700B6FD51 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				D61EED571484094700D479D9 /* timing.h */,
 				D6CEF783134B884600B6FD51 /* PCLogController.h */,
 			);
 			name = Headers;
@@ -440,22 +425,6 @@
 			productReference = D696D5761414C06700E2F416 /* LogControllerGCFW.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D6D41E6A149F535F000A47D7 /* cseTest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D6D41E6F149F537E000A47D7 /* Build configuration list for PBXNativeTarget "cseTest" */;
-			buildPhases = (
-				D6D41E68149F535F000A47D7 /* Sources */,
-				D6D41E69149F535F000A47D7 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = cseTest;
-			productName = cseTest;
-			productReference = D6D41E6B149F535F000A47D7 /* cseTest */;
-			productType = "com.apple.product-type.tool";
-		};
 		D6D6C047134C5F1C00E43CC5 /* pipeLogger */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D6C04E134C5F8700E43CC5 /* Build configuration list for PBXNativeTarget "pipeLogger" */;
@@ -499,7 +468,6 @@
 				D6D6C047134C5F1C00E43CC5 /* pipeLogger */,
 				D696D5681414C06700E2F416 /* LogControllerGC_framework */,
 				D67AD12F141624B100E99EA2 /* pipeLogger-emb */,
-				D6D41E6A149F535F000A47D7 /* cseTest */,
 			);
 		};
 /* End PBXProject section */
@@ -604,17 +572,6 @@
 				D61EEDB41484128F00D479D9 /* timing.c in Sources */,
 				D6226D15149A7DEA00CA271D /* msemul.cpp in Sources */,
 				D6226D48149A81ED00CA271D /* fwInitialiser.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D6D41E68149F535F000A47D7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D6D41E71149F538E000A47D7 /* cseTest.c in Sources */,
-				D6D41E72149F53D0000A47D7 /* msemul.cpp in Sources */,
-				D6D41E73149F53D0000A47D7 /* CritSectEx.cpp in Sources */,
-				D6D41E74149F53D0000A47D7 /* timing.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -986,38 +943,6 @@
 			};
 			name = Release;
 		};
-		D6D41E6D149F5360000A47D7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DEBUGGING_SYMBOLS = full;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = "";
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INSTALL_PATH = /usr/local/bin;
-				PREBINDING = NO;
-				PRODUCT_NAME = cseTest;
-			};
-			name = Debug;
-		};
-		D6D41E6E149F5360000A47D7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = "";
-				GCC_OPTIMIZATION_LEVEL = 3;
-				INSTALL_PATH = /usr/local/bin;
-				PREBINDING = NO;
-				PRODUCT_NAME = cseTest;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 		D6D6C04A134C5F1D00E43CC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1116,15 +1041,6 @@
 			buildConfigurations = (
 				D696D5741414C06700E2F416 /* Debug */,
 				D696D5751414C06700E2F416 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D6D41E6F149F537E000A47D7 /* Build configuration list for PBXNativeTarget "cseTest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D6D41E6D149F5360000A47D7 /* Debug */,
-				D6D41E6E149F5360000A47D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

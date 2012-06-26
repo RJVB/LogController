@@ -2,10 +2,9 @@
 {
 	0867D690FE84028FC02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Release;
-		activeExecutable = D6D41E6C149F535F000A47D7 /* cseTest */;
-		activeTarget = D6D41E6A149F535F000A47D7 /* cseTest */;
+		activeExecutable = D6D6C049134C5F1C00E43CC5 /* pipeLogger */;
+		activeTarget = 8DC2EF4F0486A6940098B216 /* LogController */;
 		addToTargets = (
-			D6D41E6A149F535F000A47D7 /* cseTest */,
 		);
 		breakpoints = (
 			D6D41E90149F55ED000A47D7 /* cseTest.c:88 */,
@@ -14,7 +13,6 @@
 		executables = (
 			D6D6C049134C5F1C00E43CC5 /* pipeLogger */,
 			D67AD131141624B100E99EA2 /* pipeLogger-emb */,
-			D6D41E6C149F535F000A47D7 /* cseTest */,
 		);
 		perUserDictionary = {
 			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
@@ -99,8 +97,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 362353922;
-			PBXWorkspaceStateSaveDate = 362353922;
+			PBXPerProjectTemplateStateSaveDate = 362406167;
+			PBXWorkspaceStateSaveDate = 362406167;
 		};
 		sourceControlManager = D6CEF76A134B87C600B6FD51 /* Source Control */;
 		userBuildSettings = {
@@ -134,6 +132,14 @@
 			sepNavSelRange = "{822, 22}";
 			sepNavVisRange = "{0, 1090}";
 			sepNavWindowFrame = "{{15, 0}, {750, 878}}";
+		};
+	};
+	D61EED571484094700D479D9 /* timing.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {736, 782}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 531}";
+			sepNavWindowFrame = "{{15, 0}, {795, 874}}";
 		};
 	};
 	D6226D0D149A7DEA00CA271D /* msemul.cpp */ = {
@@ -232,51 +238,13 @@
 			sepNavWindowFrame = "{{415, 0}, {791, 878}}";
 		};
 	};
-	D6D41E6A149F535F000A47D7 /* cseTest */ = {
-		activeExec = 0;
-		executables = (
-			D6D41E6C149F535F000A47D7 /* cseTest */,
-		);
-	};
-	D6D41E6C149F535F000A47D7 /* cseTest */ = {
-		isa = PBXExecutable;
-		activeArgIndices = (
-		);
-		argumentStrings = (
-		);
-		autoAttachOnCrash = 1;
-		breakpointsEnabled = 0;
-		configStateDict = {
-		};
-		customDataFormattersEnabled = 1;
-		dataTipCustomDataFormattersEnabled = 1;
-		dataTipShowTypeColumn = 1;
-		dataTipSortType = 0;
-		debuggerPlugin = GDBDebugging;
-		disassemblyDisplayState = 0;
-		dylibVariantSuffix = "";
-		enableDebugStr = 1;
-		environmentEntries = (
-		);
-		executableSystemSymbolLevel = 0;
-		executableUserSymbolLevel = 0;
-		libgmallocEnabled = 0;
-		name = cseTest;
-		savedGlobals = {
-		};
-		showTypeColumn = 0;
-		sourceDirectories = (
-		);
-		variableFormatDictionary = {
-		};
-	};
 	D6D41E70149F538E000A47D7 /* cseTest.c */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {720, 4858}}";
-			sepNavSelRange = "{1726, 11}";
-			sepNavVisRange = "{1123, 1329}";
-			sepNavWindowFrame = "{{15, 0}, {750, 878}}";
-		};
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.c;
+		name = cseTest.c;
+		path = "/Volumes/Debian/Users/bertin/work/src/MacOSX/GNUStep-PC-LogController/CritSectEx/cseTest.c";
+		sourceTree = "<absolute>";
 	};
 	D6D41E90149F55ED000A47D7 /* cseTest.c:88 */ = {
 		isa = PBXFileBreakpoint;
