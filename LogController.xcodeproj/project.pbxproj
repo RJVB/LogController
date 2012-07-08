@@ -938,6 +938,7 @@
 				IBC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = "Info copy 3.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
+				LD_DYLIB_INSTALL_NAME = "\U001b$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = LogControllerGCFW;
 				WRAPPER_EXTENSION = framework;
 			};
