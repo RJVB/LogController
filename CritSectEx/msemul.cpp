@@ -10,7 +10,7 @@
 
 #if !defined(_MSC_VER) && !defined(__MINGW32__) && !defined(__MINGW64__) && !defined(WIN32) && !defined(_WIN64)
 
-#ifdef linux
+#if defined(linux) || defined(__CYGWIN__)
 #	include <fcntl.h>
 #	include <sys/time.h>
 #endif
@@ -37,7 +37,7 @@ int mseShFD = -1;
 char MSESharedMemName[64] = "";
 static size_t mmapCount = 0;
 static BOOL theMSEShMemListReady = false;
-
+static CritSectEx *shMemCSE = NULL;
 typedef google::dense_hash_map<void*,size_t> MSEShMemLists;
 static MSEShMemLists theMSEShMemList;
 
@@ -45,6 +45,42 @@ typedef google::dense_hash_map<HANDLE,MSHANDLETYPE> OpenHANDLELists;
 static OpenHANDLELists theOpenHandleList;
 static google::dense_hash_map<int,const char*> HANDLETypeName;
 static BOOL theOpenHandleListReady = false;
+static CritSectEx *openHandleListCSE = NULL;
+
+static void WarnLockedHandleList()
+{
+	fprintf( stderr, "Failure preempting access to the HANDLE registry."
+		" This probably means it is being accessed from another thread; proceeding with fingers crossed\n"
+		" Set a breakpoint in WarnLockedHandleList() to trace the origin of this event.\n" );
+}
+
+static void WarnLockedShMemList()
+{
+	fprintf( stderr, "Failure preempting access to the shared memory registry."
+		" This probably means it is being accessed from another thread; proceeding with fingers crossed\n"
+		" Set a breakpoint in WarnLockedShMemList() to trace the origin of this event.\n" );
+}
+
+static void WarnLockedSemaList()
+{
+	fprintf( stderr, "Failure preempting access to the semaphore registry."
+		" This probably means it is being accessed from another thread; proceeding with fingers crossed\n"
+		" Set a breakpoint in WarnLockedSemaList() to trace the origin of this event.\n" );
+}
+
+static inline int isOpenHandle(HANDLE h)
+{ int ret = 0;
+	if( theOpenHandleListReady ){
+	  CritSectEx::Scope scope(openHandleListCSE,5000);
+		if( !scope ){
+			WarnLockedHandleList();
+		}
+		ret = (theOpenHandleList.count(h) > 0)? 1 : -1;
+	}
+	return ret;
+}
+
+static CritSectEx *semaListCSE = NULL;
 
 static pthread_key_t suspendKey = 0;
 static BOOL suspendKeyCreated = false;
@@ -101,13 +137,21 @@ int MSEmul_UsesSharedMemory()
  */
 void MSEfreeShared(void *ptr)
 { static short calls = 0;
-	if( ptr ){
+	if( ptr && ptr != shMemCSE ){
+	  CritSectEx::Scope scope(shMemCSE,5000);
+		if( shMemCSE && !scope ){
+			WarnLockedShMemList();
+		}
+		if( ptr == openHandleListCSE ){
+			openHandleListCSE->~CritSectEx();
+			openHandleListCSE = NULL;
+		}
 		if( theMSEShMemListReady && theMSEShMemList.count(ptr) ){
 		  size_t N = theMSEShMemList[ptr];
 			if( munmap( ptr, N ) == 0 ){
 				theMSEShMemList[ptr] = 0;
 				theMSEShMemList.erase(ptr);
-				if( ++calls >= 32 ){
+				if( ++calls >= 32 || mmapCount == 1){
 					theMSEShMemList.resize(0);
 					calls = 0;
 				}
@@ -141,11 +185,33 @@ void MSEfreeAllShared()
 		// been removed. Do that now - and of course BEFORE we release dangling memory ...
 		ForceCloseHandle( GetCurrentThread() );
 	}
-	while( theMSEShMemList.size() > 0 ){
-	  MSEShMemLists::iterator i = theMSEShMemList.begin();
-	  std::pair<void*,size_t> elem = *i;
-//		fprintf( stderr, "MSEfreeShared(0x%p) of %lu remaining elements\n", elem.first, theMSEShMemList.size() );
-		MSEfreeShared(elem.first);
+	if( semaListCSE ){
+		semaListCSE->~CritSectEx();
+		MSEfreeShared(semaListCSE);
+		semaListCSE = NULL;
+	}
+	{ CritSectEx::Scope scope(shMemCSE,5000);
+	  // we don't deallocate shMemCSE here, so if it's non-null the list will be empty when
+	  // only shMemCSE remains:
+	  size_t empty = (shMemCSE)? 1 : 0;
+		if( shMemCSE && !scope ){
+			WarnLockedShMemList();
+		}
+		while( theMSEShMemList.size() > empty ){
+		  MSEShMemLists::iterator i = theMSEShMemList.begin();
+		  std::pair<void*,size_t> elem = *i;
+//			fprintf( stderr, "@@ MSEfreeShared(0x%p) of %lu remaining elements\n", elem.first, theMSEShMemList.size() );
+			if( elem.first == shMemCSE ){
+				i++;
+				if( i != theMSEShMemList.end() ){
+					elem = *i;
+					MSEfreeShared(elem.first);
+				}
+			}
+			else{
+				MSEfreeShared(elem.first);
+			}
+		}
 	}
 	if( theOpenHandleListReady && theOpenHandleList.size() ){
 		fprintf( stderr, "@@@ Exit with %lu HANDLEs still open\n", theOpenHandleList.size() );
@@ -157,6 +223,12 @@ void MSEfreeAllShared()
 	if( suspendKeyCreated ){
 		pthread_key_delete(suspendKey);
 		suspendKeyCreated = false;
+	}
+	if( shMemCSE ){
+		shMemCSE->~CritSectEx();
+		void *ptr = (void*) shMemCSE;
+		shMemCSE = NULL;
+		MSEfreeShared(ptr);
 	}
 }
 
@@ -178,7 +250,7 @@ void *MSEreallocShared( void* ptr, size_t N, size_t oldN, int forceShared )
 // 			mktemp(MSESharedMemName);
 		}
 		if( (mseShFD = open( MSESharedMemName, O_RDWR )) < 0 ){
-//			fprintf( stderr, "MSEreallocShared(): can't open/create descriptor for allocating %s=0x%lx, size %s=%lu -> 0x%lx (%s)\n",
+//			fprintf( stderr, "@@ MSEreallocShared(): can't open/create descriptor for allocating %s=0x%lx, size %s=%lu -> 0x%lx (%s)\n",
 //				   (name)? name : "<unknown>", ptr, size, (unsigned long) N, mem, serror()
 //			);
 			return NULL;
@@ -192,12 +264,25 @@ void *MSEreallocShared( void* ptr, size_t N, size_t oldN, int forceShared )
 		memset( mem, 0, N );
 		mmapCount += 1;
 		if( !theMSEShMemListReady ){
+		  void *buffer;
+			theMSEShMemListReady = true;
 			theMSEShMemList.set_empty_key(NULL);
 			theMSEShMemList.set_deleted_key( (void*)-1 );
 			atexit(MSEfreeAllShared);
-			theMSEShMemListReady = true;
+			if( (buffer = MSEreallocShared( NULL, sizeof(CritSectEx), 0, true )) ){
+				shMemCSE = new (buffer) CritSectEx(4000);
+			}
 		}
-		theMSEShMemList[mem] = N;
+		{ CritSectEx::Scope scope(shMemCSE,5000);
+			if( shMemCSE && !scope ){
+				WarnLockedShMemList();
+			}
+#if DEBUG > 1
+			fprintf( stderr, "@@ MSEreallocShared(%p,%lu,%lu,%d) registering %p)\n",
+				   ptr, N, oldN, forceShared, mem );
+#endif
+			theMSEShMemList[mem] = N;
+		}
 		if( ptr ){
 			memmove( mem, ptr, oldN );
 			MSEfreeShared(ptr);
@@ -219,7 +304,7 @@ void *MSEreallocShared( void* ptr, size_t N, size_t oldN )
  */
 static char *mmstrdup( char *str )
 { char *ret = NULL;
-	if( (ret = (char*) MSEreallocShared(NULL, strlen(str), 0 )) ){
+	if( (ret = (char*) MSEreallocShared(NULL, strlen(str)+1, 0 )) ){
 		strcpy( ret, str );
 	}
 	return ret;
@@ -251,11 +336,15 @@ DWORD WaitForSingleObject( HANDLE hHandle, DWORD dwMilliseconds )
 
 	if( dwMilliseconds != (DWORD) -1 ){
 	  struct timespec timeout;
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__CYGWIN__)
 	  struct sigaction h, oh;
 	  struct itimerval rtt, ortt;
 		if( hHandle->type != MSH_EVENT && hHandle->type != MSH_THREAD ){
+#ifdef __CYGWIN__
+			h.sa_handler = cseUnsleep;
+#else
 			h.__sigaction_u.__sa_handler = cseUnsleep;
+#endif
 			sigemptyset(&h.sa_mask);
 			rtt.it_value.tv_sec= (unsigned long) (dwMilliseconds/1000);
 			rtt.it_value.tv_usec= (unsigned long) ( (dwMilliseconds- rtt.it_value.tv_sec*1000)* 1000 );
@@ -291,7 +380,7 @@ DWORD WaitForSingleObject( HANDLE hHandle, DWORD dwMilliseconds )
 #endif
 		switch( hHandle->type ){
 			case MSH_SEMAPHORE:
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__CYGWIN__)
 				if( sem_wait(hHandle->d.s.sem) ){
 //					fprintf( stderr, "sem_wait error %s\n", strerror(errno) );
 					setitimer( ITIMER_REAL, &ortt, &rtt );
@@ -340,7 +429,7 @@ DWORD WaitForSingleObject( HANDLE hHandle, DWORD dwMilliseconds )
 #endif
 				break;
 			case MSH_MUTEX:
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__CYGWIN__)
 				if( pthread_mutex_lock( hHandle->d.m.mutex ) ){
 //					fprintf( stderr, "pthread_mutex_lock error %s\n", strerror(errno) );
 					setitimer( ITIMER_REAL, &ortt, &rtt );
@@ -553,6 +642,10 @@ static BOOL theSemaListReady = false;
 static void FreeAllSemaHandles()
 { long i;
   HANDLE h;
+  CritSectEx::Scope scope(semaListCSE,5000);
+	if( !scope ){
+		WarnLockedSemaList();
+	}
 	while( !theSemaList.empty() ){
 		i = 0;
 		do{
@@ -579,12 +672,18 @@ static void FreeAllSemaHandles()
 static void AddSemaListEntry(HANDLE h)
 {
 	if( !theSemaListReady ){
-//		theSemaList.set_empty_key(NULL);
-//		theSemaList.set_deleted_key( SEM_FAILED );
-		atexit(FreeAllSemaHandles);
+	  void *buffer;
 		theSemaListReady = true;
+		atexit(FreeAllSemaHandles);
+		if( (buffer = MSEreallocShared( NULL, sizeof(CritSectEx), 0, true )) ){
+			semaListCSE = new (buffer) CritSectEx(4000);
+		}
 	}
 	if( h->type == MSH_SEMAPHORE ){
+	  CritSectEx::Scope scope(semaListCSE,5000);
+		if( !scope ){
+			WarnLockedSemaList();
+		}
 		theSemaList.push_back(h);
 	}
 }
@@ -592,7 +691,11 @@ static void AddSemaListEntry(HANDLE h)
 static void RemoveSemaListEntry(sem_t *sem)
 { unsigned int i, N = theSemaList.size();
 	for( i = 0 ; i < N ; i++ ){
-		if( theOpenHandleListReady && theOpenHandleList.count(theSemaList.at(i)) == 0 ){
+	  CritSectEx::Scope scope(semaListCSE,5000);
+		if( !scope ){
+			WarnLockedSemaList();
+		}
+		if( isOpenHandle(theSemaList.at(i)) < 0 ){
 			fputs( "@@ internal inconsistency: theSemaList refers to an unregistered HANDLE\n", stderr );
 			theSemaList.erase( theSemaList.begin() + i );
 			return;
@@ -608,6 +711,10 @@ static HANDLE FindSemaphoreHANDLE(sem_t *sem, char *name)
 { unsigned int i, N = theSemaList.size();
   HANDLE ret = NULL;
 	if( sem != SEM_FAILED || name ){
+	  CritSectEx::Scope scope(semaListCSE,5000);
+		if( !scope ){
+			WarnLockedSemaList();
+		}
 		for( i = 0 ; i < N && !ret; i++ ){
 			if( sem != SEM_FAILED ){
 				if( theSemaList.at(i)->d.s.sem == sem ){
@@ -671,7 +778,7 @@ MSHANDLE::MSHANDLE( void* ign_lpSemaphoreAttributes, long lInitialCount, long lM
 		if( lInitialCount >= 0 && lMaximumCount > 0
 		   && (d.s.sem = sem_open( lpName, O_CREAT, S_IRWXU, lInitialCount)) != SEM_FAILED
 		){
-			d.s.name = lpName;
+			d.s.name = mmstrdup(lpName);
 			d.s.owner = 0;
 			d.s.refHANDLEs = 0;
 			d.s.counter = new MSHSEMAPHORECOUNTER(lInitialCount, lMaximumCount, &d.s.refHANDLEs);
@@ -685,12 +792,11 @@ MSHANDLE::MSHANDLE( void* ign_lpSemaphoreAttributes, long lInitialCount, long lM
  of the MS function of the same name.
  */
 HANDLE CreateSemaphore( void* ign_lpSemaphoreAttributes, long lInitialCount, long ign_lMaximumCount, char *lpName )
-{  HANDLE ret = NULL;
-	if( lpName ){
-		lpName = mmstrdup(lpName);
-	}
-	else{
+{ HANDLE ret = NULL;
+  bool freeName = false;
+	if( !lpName ){
 		if( (lpName = mmstrdup( (char*) "/CSEsemXXXXXX" )) ){
+			freeName = true;
 #ifdef linux
 			{
 				char *(*fun)(char *) = (char* (*)(char*))dlsym(RTLD_DEFAULT, (char*) "mktemp");
@@ -713,10 +819,12 @@ HANDLE CreateSemaphore( void* ign_lpSemaphoreAttributes, long lInitialCount, lon
 		){
 			fprintf( stderr, "CreateSemaphore(%p,%ld,%ld,%s) failed (%s)\n",
 			         ign_lpSemaphoreAttributes, lInitialCount, ign_lMaximumCount, lpName, strerror(errno) );
-			free(lpName);
 			delete ret;
 			ret = NULL;
 		}
+	}
+	if( freeName ){
+		MSEfreeShared(lpName);
 	}
 	return ret;
 }
@@ -992,6 +1100,7 @@ int pthread_timedjoin( pthread_timed_t *tt, struct timespec *timeout, void **sta
 			}
 			// wait until the thread announces it's exiting (it may already have...)
 			// or until timeout occurs:
+			perrno = 0;
 			while( ret == 0 && !tt->exiting ){
 				ret = pthread_cond_timedwait( tt->cond, tt->mutex, timeout );
 				perrno = ret;
@@ -1444,6 +1553,8 @@ int GetThreadPriority(HANDLE hThread)
 static void RegisterHANDLE(HANDLE h)
 {
 	if( !theOpenHandleListReady ){
+	  void *buffer;
+		theOpenHandleListReady = true;
 		theOpenHandleList.set_empty_key(NULL);
 		theOpenHandleList.set_deleted_key( (HANDLE)-1 );
 		HANDLETypeName.set_empty_key(-1);
@@ -1454,7 +1565,9 @@ static void RegisterHANDLE(HANDLE h)
 		HANDLETypeName[MSH_EVENT] = "MSH_EVENT";
 		HANDLETypeName[MSH_THREAD] = "MSH_THREAD";
 		HANDLETypeName[MSH_CLOSED] = "MSH_CLOSED";
-		theOpenHandleListReady = true;
+		if( (buffer = MSEreallocShared( NULL, sizeof(CritSectEx), 0, true )) ){
+			openHandleListCSE = new (buffer) CritSectEx(4000);
+		}
 	}
 	switch( h->type ){
 		case MSH_SEMAPHORE:
@@ -1473,7 +1586,12 @@ static void RegisterHANDLE(HANDLE h)
 		default:
 			break;
 	}
-	theOpenHandleList[h] = h->type;
+	{ CritSectEx::Scope scope(openHandleListCSE,5000);
+		if( !scope ){
+			WarnLockedHandleList();
+		}
+		theOpenHandleList[h] = h->type;
+	}
 //	fprintf( stderr, "@@ Registering HANDLE 0x%p (type %d %s)\n", h, h->type, h->asString().c_str() );
 }
 
@@ -1489,9 +1607,15 @@ static void UnregisterHANDLE(HANDLE h)
 		default:
 			break;
 	}
-	if( theOpenHandleListReady && theOpenHandleList.count(h) ){
-		theOpenHandleList.erase(h);
-//		fprintf( stderr, "@@ Unregistering HANDLE 0x%p (type %d %s)\n", h, h->type, h->asString().c_str() );
+	{ CritSectEx::Scope scope(openHandleListCSE,5000);
+		if( !scope ){
+			WarnLockedHandleList();
+		}
+		// here we don't invoke isOpenHandle() because we've already locked access to the list
+		if( theOpenHandleListReady && theOpenHandleList.count(h) ){
+			theOpenHandleList.erase(h);
+//			fprintf( stderr, "@@ Unregistering HANDLE 0x%p (type %d %s)\n", h, h->type, h->asString().c_str() );
+		}
 	}
 }
 
@@ -1535,7 +1659,7 @@ MSHANDLE::~MSHANDLE()
 					d.s.counter = NULL;
 				}
 				if( d.s.name ){
-					mmfree(d.s.name);
+					MSEfreeShared(d.s.name);
 					d.s.name = NULL;
 				}
 				ret = true;
@@ -1583,7 +1707,7 @@ MSHANDLE::~MSHANDLE()
 
 static bool CloseHandle( HANDLE hObject, bool joinThread=true )
 {
-	if( hObject && theOpenHandleListReady && theOpenHandleList.count(hObject) ){
+	if( hObject && isOpenHandle(hObject) ){
 #ifdef DEBUG
 		fprintf( stderr, "CloseHandle(%p%s)\n", hObject, hObject->asString().c_str() );
 #endif
@@ -1671,6 +1795,7 @@ std::string MSHANDLE::asString()
 #pragma mark ---end non-MSWin code---
 #else // __windows__
 
+#include "CritSectEx/CritSectEx.h"
 #include "CritSectEx/msemul4win.h"
 #include <sparsehash/dense_hash_map>
 #include <windows.h>
@@ -1680,6 +1805,7 @@ int mseShFD = -1;
 TCHAR MSESharedMemName[] = "Global\\MSEmulFileMappingObject";
 static size_t mmapCount = 0;
 static BOOL theMSEShMemListReady = false;
+static CritSectEx *shMemCSE = NULL;
 
 //typedef struct MSEShMemEntries {
 //	HANDLE hmem;
@@ -1690,6 +1816,13 @@ typedef google::dense_hash_map<void*,HANDLE> MSEShMemLists;
 static MSEShMemLists theMSEShMemList;
 static DWORD sharedMemKey;
 static bool sharedMemKeyCreated = false;
+
+static void WarnLockedShMemList()
+{
+	fprintf( stderr, "Failure preempting access to the shared memory registry."
+		" This probably means it is being accessed from another thread; proceeding with fingers crossed\n"
+		" Set a breakpoint in WarnLockedShMemList() to trace the origin of this event.\n" );
+}
 
 /*!
 	A THREAD SPECIFIC selector whether shared memory should be used. In other words,
@@ -1734,7 +1867,11 @@ int MSEmul_UsesSharedMemory()
  */
 void MSEfreeShared(void *ptr)
 { static short calls = 0;
-	if( ptr ){
+	if( ptr && ptr != shMemCSE ){
+	  CritSectEx::Scope scope(shMemCSE, 5000);
+		if( shMemCSE && !scope ){
+			WarnLockedShMemList();
+		}
 		if( theMSEShMemListReady && theMSEShMemList.count(ptr) ){
 		  HANDLE hmem = theMSEShMemList[ptr];
 			UnmapViewOfFile(ptr);
@@ -1761,11 +1898,34 @@ void MSEfreeShared(void *ptr)
  */
 void MSEfreeAllShared()
 {
-	while( theMSEShMemList.size() > 0 ){
-	  MSEShMemLists::iterator i = theMSEShMemList.begin();
-	  std::pair<void*,HANDLE> elem = *i;
-//		fprintf( stderr, "MSEfreeShared(0x%p) of %lu remaining elements\n", elem.first, theMSEShMemList.size() );
-		MSEfreeShared(elem.first);
+	{ CritSectEx::Scope scope(shMemCSE);
+	  // we don't deallocate shMemCSE here, so if it's non-null the list will be empty when
+	  // only shMemCSE remains:
+	  size_t empty = (shMemCSE)? 1 : 0;
+		if( shMemCSE && !scope ){
+			WarnLockedShMemList();
+		}
+		while( theMSEShMemList.size() > empty ){
+		  MSEShMemLists::iterator i = theMSEShMemList.begin();
+		  std::pair<void*,HANDLE> elem = *i;
+	//		fprintf( stderr, "MSEfreeShared(0x%p) of %lu remaining elements\n", elem.first, theMSEShMemList.size() );
+			if( elem.first == shMemCSE ){
+				i++;
+				if( i != theMSEShMemList.end() ){
+					elem = *i;
+					MSEfreeShared(elem.first);
+				}
+			}
+			else{
+				MSEfreeShared(elem.first);
+			}
+		}
+	}
+	if( shMemCSE ){
+		shMemCSE->~CritSectEx();
+		void *ptr = (void*) shMemCSE;
+		shMemCSE = NULL;
+		MSEfreeShared(ptr);
 	}
 }
 
@@ -1795,15 +1955,28 @@ void *MSEreallocShared( void* ptr, size_t N, size_t oldN, int forceShared )
 		memset( mem, 0, N );
 		mmapCount += 1;
 		if( !theMSEShMemListReady ){
+		  void *buffer;
+			theMSEShMemListReady = true;
 //			entry.hmem = NULL, entry.size = 0;
 			theMSEShMemList.set_empty_key(NULL);
 //			entry.hmem = (HANDLE)-1, entry.size = -1;
 			theMSEShMemList.set_deleted_key( (HANDLE)-1 );
 			atexit(MSEfreeAllShared);
-			theMSEShMemListReady = true;
+			if( (buffer = MSEreallocShared( NULL, sizeof(CritSectEx), 0, true )) ){
+				shMemCSE = new (buffer) CritSectEx(4000);
+			}
 		}
 //		entry.hmem = hmem, entry.size = N;
-		theMSEShMemList[mem] = hmem;
+		{ CritSectEx::Scope scope(shMemCSE);
+			if( shMemCSE && !scope ){
+				WarnLockedShMemList();
+			}
+#if DEBUG > 1
+			fprintf( stderr, "@@ MSEreallocShared(%p,%lu,%lu,%d) registering %p)\n",
+				   ptr, N, oldN, forceShared, mem );
+#endif
+			theMSEShMemList[mem] = hmem;
+		}
 #ifdef DEBUG
 //		fprintf( stderr, "MSEreallocShared(%p,%lu)=%p, file mapping handle=%p\n", ptr, N, mem, hmem );
 #endif
