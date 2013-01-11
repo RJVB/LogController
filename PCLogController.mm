@@ -586,3 +586,13 @@ static void PCLogfinaliser()
 		[ProgName release];
 	}
 }
+
+void *qtLogName()
+{
+	return [NSApplication sharedApplication];
+}
+
+void *nsString(char *s)
+{
+	return [NSString stringWithCString:s encoding:NSUTF8StringEncoding];
+}

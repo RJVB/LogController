@@ -23,8 +23,10 @@
 #ifndef _PCLOGCONTROLLER_H
 #define _PCLOGCONTROLLER_H
 
-#import <AppKit/AppKit.h>
-#import <AppKit/NSTextView.h>
+#ifdef __OBJC__
+#	import <AppKit/AppKit.h>
+#	import <AppKit/NSTextView.h>
+#endif //__OBJC__
 
 #ifdef _PCLOGCONTROLLER_M
 #	import "CritSectEx.h"
@@ -43,22 +45,28 @@ extern "C" {
 extern char lastPCLogMsg[2048];
 
 // --- Functions
-int
-PCLog(id sender, int tag, const char *fileName, int lineNr, NSString* format, va_list args);
-int
-PCLogInfo(id sender, const char *fileName, int lineNr, NSString* format, ...);
-int
-PCLogStatus(id sender, const char *fileName, int lineNr, NSString* format, ...);
-int
-vPCLogStatus(id sender, const char *fileName, int lineNr, NSString* format, va_list args);
-int
-PCLogWarning(id sender, const char *fileName, int lineNr, NSString* format, ...);
-int
-PCLogError(id sender, const char *fileName, int lineNr, NSString* format, ...);
+#ifndef __OBJC__
+#	ifdef __cplusplus
+#		define	BOOL		bool
+#	else
+#		define	BOOL		unsigned char
+#	endif
+	typedef void*	id;
+	typedef void	NSString;
+#endif
+int PCLog(id sender, int tag, const char *fileName, int lineNr, NSString* format, va_list args);
+int PCLogInfo(id sender, const char *fileName, int lineNr, NSString* format, ...);
+int PCLogStatus(id sender, const char *fileName, int lineNr, NSString* format, ...);
+int vPCLogStatus(id sender, const char *fileName, int lineNr, NSString* format, va_list args);
+int PCLogWarning(id sender, const char *fileName, int lineNr, NSString* format, ...);
+int PCLogError(id sender, const char *fileName, int lineNr, NSString* format, ...);
 BOOL PCLogSetActive(BOOL active);
 BOOL PCLogActive();
 BOOL PCLogHasBGServer();
 BOOL PCLogSetHasBGServer(BOOL hasBGServer);
+
+void *qtLogName();
+void *nsString(char *s);
 
 // when using PCLog from an application that is not a regular ObjC 'NSApplication', i.e.
 // that does not have a global pool: allocates an NSAutoReleasePool.
@@ -73,7 +81,7 @@ typedef struct PCLogEntry {
 	int tag, lineNr;
 	id sender;
 	const char *fileName;
-#ifdef __cplusplus
+#if defined(__cplusplus) && defined(__OBJC__)
 	PCLogEntry(id _sender, int _tag, const char *_fileName, int _lineNr, NSString* message)
 	{
 		logMessage = [message retain];
@@ -90,7 +98,7 @@ typedef struct PCLogEntry {
 #endif
 } PCLogEntry;
 
-#ifdef __cplusplus
+#if defined(__cplusplus) && defined(__OBJC__)
 	typedef std::queue<PCLogEntry*>	PCLogMessageQueue;
 
 	template <class qElem> inline size_t queueSizeAndFront(CRITSECT *cs, std::queue<qElem> *q, qElem *front, bool pop, bool *to)
@@ -131,6 +139,7 @@ typedef struct PCLogEntry {
 	typedef void*					PCLogMessageQueue;
 #endif
 
+#ifdef __OBJC__
 @class NSTextView;
 
 @interface PCLogController : NSObject
@@ -188,5 +197,7 @@ typedef struct PCLogEntry {
 - (void) windowWillClose:(NSNotification*) notification;
 
 @end
+
+#endif //__OBJC__
 
 #endif
