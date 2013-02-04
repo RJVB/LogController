@@ -633,6 +633,7 @@
 				GCC_STRICT_ALIASING = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/Frameworks;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = LogController;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -659,6 +660,7 @@
 				GCC_STRICT_ALIASING = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/Frameworks;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = LogController;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -683,7 +685,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -792,6 +794,7 @@
 				IBC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = "Info copy.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = LogControllerL;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -821,6 +824,7 @@
 				INFOPLIST_FILE = "Info copy.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
 				LLVM_LTO = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = LogControllerL;
 				WRAPPER_EXTENSION = framework;
 			};
