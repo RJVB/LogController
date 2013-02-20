@@ -57,6 +57,7 @@ extern char lastPCLogMsg[2048];
 int PCLog(id sender, int tag, const char *fileName, int lineNr, NSString* format, va_list args);
 int PCLogInfo(id sender, const char *fileName, int lineNr, NSString* format, ...);
 int PCLogStatus(id sender, const char *fileName, int lineNr, NSString* format, ...);
+int PCLogStatusWithCFormat(id sender, const char *fileName, int lineNr, char *format, ...);
 int vPCLogStatus(id sender, const char *fileName, int lineNr, NSString* format, va_list args);
 int PCLogWarning(id sender, const char *fileName, int lineNr, NSString* format, ...);
 int PCLogError(id sender, const char *fileName, int lineNr, NSString* format, ...);

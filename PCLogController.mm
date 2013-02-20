@@ -73,6 +73,17 @@ PCLogStatus(id sender, const char *fileName, int lineNr, NSString* format, ...)
 }
 
 int
+PCLogStatusWithCFormat(id sender, const char *fileName, int lineNr, char *format, ...)
+{ va_list ap;
+  int ret;
+
+  va_start(ap, format);
+  ret = PCLog(sender, STATUS, fileName, lineNr, [NSString stringWithCString:format encoding:NSUTF8StringEncoding], ap);
+  va_end(ap);
+  return ret;
+}
+
+int
 vPCLogStatus(id sender, const char *fileName, int lineNr, NSString* format, va_list args)
 { int ret;
 
