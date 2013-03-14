@@ -6,6 +6,23 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		D65B7EE716EFA3D40053CA35 /* All frameworks */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D65B7EF916EFA4000053CA35 /* Build configuration list for PBXAggregateTarget "All frameworks" */;
+			buildPhases = (
+			);
+			dependencies = (
+				D65B7EEB16EFA3E20053CA35 /* PBXTargetDependency */,
+				D65B7EED16EFA3E20053CA35 /* PBXTargetDependency */,
+				D65B7EEF16EFA3E20053CA35 /* PBXTargetDependency */,
+				D65B7EF116EFA3E20053CA35 /* PBXTargetDependency */,
+			);
+			name = "All frameworks";
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
@@ -66,6 +83,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D65B7EEA16EFA3E20053CA35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = LogController;
+		};
+		D65B7EEC16EFA3E20053CA35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D67A1CCE134B9F3600073807;
+			remoteInfo = LogController_loader;
+		};
+		D65B7EEE16EFA3E20053CA35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6169D0C134D021D004A2A56;
+			remoteInfo = LogController_framework;
+		};
+		D65B7EF016EFA3E20053CA35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D696D5681414C06700E2F416;
+			remoteInfo = LogControllerGC_framework;
+		};
 		D67AD13B141624B900E99EA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
@@ -462,6 +507,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				D65B7EE716EFA3D40053CA35 /* All frameworks */,
 				8DC2EF4F0486A6940098B216 /* LogController */,
 				D67A1CCE134B9F3600073807 /* LogController_loader */,
 				D6169D0C134D021D004A2A56 /* LogController_framework */,
@@ -586,6 +632,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D65B7EEB16EFA3E20053CA35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* LogController */;
+			targetProxy = D65B7EEA16EFA3E20053CA35 /* PBXContainerItemProxy */;
+		};
+		D65B7EED16EFA3E20053CA35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D67A1CCE134B9F3600073807 /* LogController_loader */;
+			targetProxy = D65B7EEC16EFA3E20053CA35 /* PBXContainerItemProxy */;
+		};
+		D65B7EEF16EFA3E20053CA35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6169D0C134D021D004A2A56 /* LogController_framework */;
+			targetProxy = D65B7EEE16EFA3E20053CA35 /* PBXContainerItemProxy */;
+		};
+		D65B7EF116EFA3E20053CA35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D696D5681414C06700E2F416 /* LogControllerGC_framework */;
+			targetProxy = D65B7EF016EFA3E20053CA35 /* PBXContainerItemProxy */;
+		};
 		D67AD13C141624B900E99EA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D696D5681414C06700E2F416 /* LogControllerGC_framework */;
@@ -769,6 +835,27 @@
 			};
 			name = Release;
 		};
+		D65B7EE816EFA3D50053CA35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		D65B7EE916EFA3D50053CA35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		D67A1CD9134B9F3600073807 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -781,7 +868,7 @@
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SSE41_EXTENSIONS = YES;
 				GCC_ENABLE_SSE42_EXTENSIONS = YES;
@@ -813,7 +900,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SSE41_EXTENSIONS = YES;
 				GCC_ENABLE_SSE42_EXTENSIONS = YES;
@@ -897,7 +984,7 @@
 				GCC_DEBUGGING_SYMBOLS = full;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SSE41_EXTENSIONS = YES;
 				GCC_ENABLE_SSE42_EXTENSIONS = YES;
@@ -930,7 +1017,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SSE41_EXTENSIONS = YES;
 				GCC_ENABLE_SSE42_EXTENSIONS = YES;
@@ -1025,6 +1112,15 @@
 			buildConfigurations = (
 				D6169D18134D021D004A2A56 /* Debug */,
 				D6169D19134D021D004A2A56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D65B7EF916EFA4000053CA35 /* Build configuration list for PBXAggregateTarget "All frameworks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D65B7EE816EFA3D50053CA35 /* Debug */,
+				D65B7EE916EFA3D50053CA35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
